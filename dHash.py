@@ -1,3 +1,5 @@
+from PIL import Image
+
 class DHash(object):
     @staticmethod
     def calculate_hash(image):
@@ -76,3 +78,9 @@ class DHash(object):
         difference = (int(dhash1, 16)) ^ (int(dhash2, 16))
         return bin(difference).count("1")
 
+
+im1 = "../../Path/1.jpg"
+im2 = "../../Path/11.jpg"
+img1 = Image.open(im1)
+img2 = Image.open(im2)
+print("DHash: "+str(DHash.hamming_distance(img1,img2)))
